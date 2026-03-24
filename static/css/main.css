@@ -70,6 +70,28 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+/* ── Section Glow Dividers ──────────────────────────────────── */
+.section-glow-line {
+  position: relative;
+}
+.section-glow-line::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 5px;
+  background: inherit;
+  filter: blur(6px);
+  opacity: 0.6;
+}
+
+/* ── Speed Bar Animation (Bento Grid) ───────────────────────── */
+.speed-bar {
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s;
+}
+
 /* ── Staggered Entrance Animations ──────────────────────────── */
 .stagger-1 { animation-delay: 0.1s; opacity: 0; }
 .stagger-2 { animation-delay: 0.2s; opacity: 0; }
@@ -186,6 +208,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Pricing Cards Stagger ──────────────────────────────────── */
 .pricing-card {
   opacity: 0;
+  border-radius: 12px !important;
 }
 .pricing-card-1 { animation-delay: 100ms; }
 .pricing-card-2 { animation-delay: 250ms; }

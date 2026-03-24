@@ -1,8 +1,32 @@
 {{ define "main" }}
   {{- partial "hero.html" . -}}
   {{- partial "logos.html" . -}}
+
+  <!-- ═══ Accent Divider ═══ -->
+  <div class="w-full flex justify-center py-2">
+    <div class="section-glow-line w-full max-w-[600px] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+  </div>
+
   {{- partial "features-grid.html" . -}}
+
+  <!-- ═══ Accent Divider ═══ -->
+  <div class="w-full flex justify-center py-2">
+    <div class="section-glow-line w-full max-w-[400px] h-px bg-gradient-to-r from-transparent via-secondary/25 to-transparent"></div>
+  </div>
+
   {{- partial "features-deep-dive.html" . -}}
+
+  <!-- ═══ Accent Divider ═══ -->
+  <div class="w-full flex justify-center py-6">
+    <div class="section-glow-line w-full max-w-[500px] h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent"></div>
+  </div>
+
   {{- partial "pricing.html" . -}}
+
+  <!-- ═══ Accent Divider ═══ -->
+  <div class="w-full flex justify-center py-4">
+    <div class="section-glow-line w-full max-w-[300px] h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent"></div>
+  </div>
+
   {{- partial "cta.html" . -}}
 {{ end }}
