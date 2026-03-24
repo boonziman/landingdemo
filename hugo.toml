@@ -1,0 +1,56 @@
+# =============================================================================
+# Synapse AI — Hugo Configuration
+# =============================================================================
+
+baseURL       = "https://boonziman.github.io/Landingdemo/"
+languageCode  = "en-us"
+title         = "Synapse AI — Intelligence, automated."
+copyright     = "© 2024 Synapse AI. All rights reserved."
+disableKinds  = ["taxonomy", "term"]
+
+# Build
+[build]
+  writeStats = true
+
+# Site-wide parameters
+[params]
+  description   = "AI-powered workflow automation engine that transforms unstructured data into actionable insights instantly."
+  author        = "Synapse AI"
+  tagline       = "Intelligence, automated."
+  ogImage       = "/images/og-image.png"
+  twitterHandle = "@synapseai"
+
+  # Design tokens (available in templates via .Site.Params)
+  colorPrimary    = "#00E5FF"
+  colorSecondary  = "#7000FF"
+  colorBackground = "#050914"
+  colorSurface    = "#0F1423"
+  colorText       = "#FFFFFF"
+  colorMuted      = "#8B949E"
+  colorAccent     = "#00FF94"
+  colorBorder     = "#1F2937"
+
+# Navigation menu
+[menu]
+  [[menu.main]]
+    name       = "Features"
+    url        = "/#features"
+    weight     = 1
+  [[menu.main]]
+    name       = "Pricing"
+    url        = "/#pricing"
+    weight     = 2
+  [[menu.main]]
+    name       = "Docs"
+    url        = "#"
+    weight     = 3
+
+# Markup settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Output formats
+[outputs]
+  home = ["HTML"]

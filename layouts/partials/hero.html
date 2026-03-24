@@ -1,0 +1,56 @@
+<!-- ============================== -->
+<!-- Hero Section                   -->
+<!-- ============================== -->
+<section id="hero" class="relative w-full overflow-hidden flex flex-col items-center text-center pt-32 pb-48 md:pt-48 md:pb-72 px-6">
+  <!-- Animated Background Layers -->
+  <div class="mesh-gradient animate-mesh-float"></div>
+  <div class="absolute inset-0 animated-grid animate-grid-flow opacity-30 z-[-1]"></div>
+
+  <!-- Glowing Particles (pure CSS) -->
+  <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full animate-pulse-slow blur-[1px]"></div>
+  <div class="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-secondary rounded-full animate-pulse-slow blur-[1px]" style="animation-delay: 2s;"></div>
+  <div class="absolute bottom-1/4 left-1/2 w-1 h-1 bg-accent rounded-full animate-pulse-slow blur-[1px]" style="animation-delay: 1s;"></div>
+
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <!-- ═══ Flowing Wave Animation (Canvas) ═══ -->
+  <div class="absolute inset-x-0 bottom-0 h-[60%] z-[5] pointer-events-none">
+    <canvas id="hero-wave-canvas" class="w-full h-full" style="mix-blend-mode: screen;"></canvas>
+    <!-- Bottom fade into page background -->
+    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050914] to-transparent"></div>
+  </div>
+
+  <!-- ═══ Content (above wave) ═══ -->
+  <div class="max-w-[1200px] w-full flex flex-col items-center relative z-20">
+    <!-- Version Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 mb-10 text-[11px] uppercase font-bold tracking-[0.2em] text-primary animate-fade-up stagger-1 font-body">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+      Synapse Engine v2.0 is live
+    </div>
+
+    <!-- Headline with reveal animation -->
+    <h1 class="text-5xl md:text-7xl lg:text-[84px] font-black leading-[1] tracking-[-0.04em] max-w-[900px] mb-8 text-white font-heading reveal-container">
+      <span class="reveal-text stagger-2">Intelligence,</span>
+      <span class="reveal-text stagger-3">automated.</span>
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="text-lg md:text-xl text-muted max-w-[640px] mb-12 font-medium leading-relaxed animate-fade-up stagger-4 font-body">
+      Transform unstructured data into actionable insights instantly without writing SQL or wrangling messy spreadsheets.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto animate-fade-up stagger-5">
+      <a href="{{ "signup/" | relURL }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-[4px] h-14 px-10 bg-primary text-[#050914] text-base font-bold transition-all btn-glow w-full sm:w-auto font-body no-underline">
+        <span>Start Building Free</span>
+      </a>
+      <button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-[4px] h-14 px-10 bg-surface-dark/50 border border-border-dark text-white text-base font-semibold transition-all hover:bg-surface-dark w-full sm:w-auto gap-2 backdrop-blur-sm font-body">
+        <span class="material-symbols-outlined text-[22px]">play_circle</span>
+        <span>Watch Demo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Hero wave animation script -->
+<script src="{{ "js/hero-wave.js" | relURL }}"></script>

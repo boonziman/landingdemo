@@ -1,0 +1,120 @@
+{{ define "body" }}
+<!-- ============================== -->
+<!-- Auth / Sign Up Page            -->
+<!-- ============================== -->
+<div class="flex min-h-screen w-full">
+  <!-- Left Side: Auth Form -->
+  <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 relative overflow-hidden bg-[#050914]">
+    <!-- Back to Home Logo -->
+    <a class="absolute top-8 left-8 flex items-center gap-2 text-white hover:text-primary transition-colors no-underline z-20" href="{{ "/" | relURL }}">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+      <span class="font-heading text-lg font-bold tracking-wider">Synapse AI</span>
+    </a>
+
+    <div class="w-full max-w-[400px] flex flex-col gap-8 animate-slide-up-fade opacity-0">
+      <div>
+        <h1 class="font-heading text-4xl mb-2">Create your account</h1>
+        <p class="text-muted text-base font-body">Join Synapse AI to automate your workflows.</p>
+      </div>
+
+      <form id="signup-form" class="flex flex-col gap-6" onsubmit="handleSignup(event)">
+        <!-- Email Input -->
+        <div class="flex flex-col gap-2" id="email-group">
+          <label class="text-sm font-medium font-body" for="email">Email</label>
+          <input
+            class="form-input h-12 w-full bg-[#0F1423] border border-[#1F2937] text-white placeholder-[#8B949E] focus:ring-1 focus:ring-primary focus:border-primary transition-all px-4 rounded-[4px] font-body"
+            id="email"
+            placeholder="name@company.com"
+            required
+            type="email"
+          />
+          <p class="error-text hidden text-[#FF3366] text-[13px] font-medium mt-1 font-body">Please enter a valid company email.</p>
+        </div>
+
+        <!-- Password Input -->
+        <div class="flex flex-col gap-2">
+          <label class="text-sm font-medium font-body" for="password">Password</label>
+          <input
+            class="form-input h-12 w-full bg-[#0F1423] border border-[#1F2937] text-white placeholder-[#8B949E] focus:ring-1 focus:ring-primary focus:border-primary transition-all px-4 rounded-[4px] font-body"
+            id="password"
+            placeholder="••••••••"
+            required
+            type="password"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          class="mt-2 h-12 w-full bg-primary text-[#050914] font-bold text-[15px] rounded-[4px] flex items-center justify-center transition-all hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] font-body"
+          id="submit-btn"
+          type="submit"
+        >
+          <span id="btn-text">Create Account</span>
+          <div class="spinner hidden" id="btn-spinner"></div>
+        </button>
+
+        <p class="text-center text-sm text-muted mt-4 font-body">
+          Already have an account? <a class="text-primary hover:underline" href="#">Log in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Right Side: Decorative Testimonial Panel with Nebula -->
+  <div class="hidden lg:flex w-1/2 nebula-bg animate-nebula relative items-center justify-center p-16 overflow-hidden border-l border-[#1F2937]">
+    <!-- Noise Texture Overlay -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxmaWx0ZXIgaWQ9Im4iPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjc1IiB5dW1PY3RhdmVzPSI0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjA1IiBtaXgtYmxlbmQtbW9kZT0ib3ZlcmxheSIvPjwvc3ZnPg==')] opacity-40 pointer-events-none mix-blend-overlay"></div>
+
+    <!-- Decorative glowing blobs -->
+    <div class="absolute top-1/4 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
+    <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-secondary/30 rounded-full blur-[120px] mix-blend-screen animate-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="relative z-10 max-w-[500px]">
+      <span class="material-symbols-outlined text-primary text-6xl mb-6 opacity-80 animate-slide-up-fade" style="font-variation-settings: 'FILL' 1; animation-delay: 0.2s;">format_quote</span>
+      <div class="reveal-container mb-8">
+        <blockquote class="font-heading text-4xl leading-tight opacity-0 animate-reveal-text" style="animation-delay: 0.4s;">
+          "Synapse cut our data prep time by 90%."
+        </blockquote>
+      </div>
+      <div class="flex items-center gap-4 animate-slide-up-fade opacity-0" style="animation-delay: 0.8s;">
+        <div class="w-12 h-12 rounded-full bg-[#0F1423]/50 backdrop-blur-sm border border-white/10 flex items-center justify-center overflow-hidden">
+          <img
+            alt="Portrait of Sarah Jenkins"
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC73iDIZzMmwR3OlSjHPn141jC3cop9tD3W191rMoleAcjare0Y2VRM_tg1--0vs6Pa3LqQMYXxbKE5ocmvvwScz5RdtMKBbiLyPlFI6fKp-3OpZrHsJg8DYn1UuzALx5gqyvPDQqJ3MdDZPx5NTkkW8pC89-EaY8kgZKZV-bYevVQadabzgCVluhSm_mUARxdJJj8VAjV4JZ4UQZkx-_nnhMiN2GHQv0EJiwP6mrKQpXp1NIwaYSdXMJQ4gwJxmELKCHhKZvUVYTYs"
+          />
+        </div>
+        <div>
+          <div class="font-bold text-base font-body">Sarah Jenkins</div>
+          <div class="text-white/60 text-sm font-body">VP of Data, TechCorp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleSignup(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const spinner = document.getElementById('btn-spinner');
+    const emailGroup = document.getElementById('email-group');
+
+    // Show loading state
+    btn.classList.add('opacity-70');
+    btn.disabled = true;
+    btnText.classList.add('hidden');
+    spinner.classList.remove('hidden');
+
+    // Simulate API call → show error state for demo
+    setTimeout(() => {
+      emailGroup.classList.add('has-error');
+      btn.classList.remove('opacity-70');
+      btn.disabled = false;
+      btnText.classList.remove('hidden');
+      spinner.classList.add('hidden');
+    }, 1500);
+  }
+</script>
+{{ end }}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html class="dark" lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body class="bg-[#050914] text-white min-h-screen flex flex-col overflow-x-hidden selection:bg-[#00E5FF] selection:text-[#050914]">
+  {{- block "body" . }}
+    {{- partial "header.html" . -}}
+    <main class="flex-1 w-full relative z-10 flex flex-col items-center">
+      {{- block "main" . }}{{ .Content }}{{ end -}}
+    </main>
+    {{- partial "footer.html" . -}}
+  {{ end -}}
+</body>
+</html>

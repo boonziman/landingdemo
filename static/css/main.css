@@ -1,0 +1,342 @@
+/* ============================================================
+   Synapse AI — Master Stylesheet
+   Premium Design System — v3
+   ============================================================ */
+
+/* ── Base ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  background-color: #050914;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', sans-serif;
+}
+
+::selection {
+  background: #00E5FF;
+  color: #050914;
+}
+
+:focus-visible {
+  outline: 2px solid #00E5FF;
+  outline-offset: 2px;
+}
+
+/* ── Material Symbols ───────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Premium Background Mesh Gradient ───────────────────────── */
+.mesh-gradient {
+  background:
+    radial-gradient(at 0% 0%, rgba(112, 0, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 229, 255, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(15, 20, 35, 1) 0px, transparent 80%);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+/* ── Button Glow ────────────────────────────────────────────── */
+.btn-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.35), 0 0 60px rgba(0, 229, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Feature Card ───────────────────────────────────────────── */
+.feature-card {
+  transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Staggered Entrance Animations ──────────────────────────── */
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.5s; opacity: 0; }
+.stagger-5 { animation-delay: 0.7s; opacity: 0; }
+
+/* ── Carousel Gradient Mask ─────────────────────────────────── */
+.carousel-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* ── Animated Grid Background ───────────────────────────────── */
+.animated-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+}
+
+/* ── Reveal Animations (word-by-word hero) ──────────────────── */
+.reveal-container {
+  overflow: hidden;
+  display: block;
+}
+.reveal-text {
+  display: block;
+  animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes reveal {
+  0%   { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Glow Overlay (Features Mockup) ─────────────────────────── */
+.glow-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: #7000FF;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* ── Tab Transition ─────────────────────────────────────────── */
+.tab-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Scanner Line (Features Mockup) ─────────────────────────── */
+.scanner-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* ── Parallax Effect ────────────────────────────────────────── */
+.parallax-container {
+  perspective: 1000px;
+}
+.parallax-element {
+  transition: transform 0.15s ease-out;
+}
+
+/* ── Shimmer Effect (Pro Pricing Card) ──────────────────────── */
+.shimmer-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(112, 0, 255, 0.08),
+    rgba(0, 229, 255, 0.12),
+    rgba(112, 0, 255, 0.08),
+    transparent
+  );
+  transform: skewX(-15deg);
+  animation: shimmer 5s infinite linear;
+  pointer-events: none;
+}
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* ── Check Animate (Pricing Checkmarks) ─────────────────────── */
+.check-animate {
+  animation: drawIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+.pricing-card-1 .check-animate { animation-delay: 800ms; }
+.pricing-card-2 .check-animate { animation-delay: 1000ms; }
+.pricing-card-3 .check-animate { animation-delay: 1200ms; }
+@keyframes drawIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Pricing Cards Stagger ──────────────────────────────────── */
+.pricing-card {
+  opacity: 0;
+}
+.pricing-card-1 { animation-delay: 100ms; }
+.pricing-card-2 { animation-delay: 250ms; }
+.pricing-card-3 { animation-delay: 400ms; }
+
+/* ── Nebula Background (Signup Panel) ───────────────────────── */
+.nebula-bg {
+  background: linear-gradient(-45deg, #050914, #1a0b2e, #2e0066, #004b54);
+  background-size: 400% 400%;
+}
+
+/* ── Scroll Reveal — Main (used by both observers) ──────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Terminal Lines Animation ───────────────────────────────── */
+.terminal-line {
+  opacity: 0;
+  animation: terminalReveal 0.5s ease-out forwards;
+}
+.terminal-line:nth-child(1) { animation-delay: 0.8s; }
+.terminal-line:nth-child(2) { animation-delay: 1.4s; }
+.terminal-line:nth-child(3) { animation-delay: 2.0s; }
+@keyframes terminalReveal {
+  0%   { opacity: 0; transform: translateX(-8px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Form Input Focus Glow ──────────────────────────────────── */
+.form-input:focus {
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+  outline: none;
+}
+
+/* ── Auth Page: Spinner ─────────────────────────────────────── */
+.spinner {
+  border: 2px solid rgba(5, 9, 20, 0.3);
+  border-top: 2px solid #050914;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ── Auth Page: Error State ─────────────────────────────────── */
+.has-error .form-input {
+  border-color: #FF3366 !important;
+}
+.has-error .error-text {
+  display: block;
+}
+
+/* ── Hover Lift ─────────────────────────────────────────────── */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* ── Animation Delays ───────────────────────────────────────── */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* ── Mobile Optimizations ───────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Reduce animation overhead on mobile */
+  .animated-grid {
+    opacity: 0.15 !important;
+  }
+
+  /* Tighter spacing on mobile */
+  .feature-card {
+    padding: 1.5rem !important;
+  }
+
+  /* Fix pricing card scale on mobile */
+  .pricing-card {
+    transform: none !important;
+  }
+
+  /* Reduce canvas DPI on mobile for performance */
+  canvas {
+    image-rendering: optimizeSpeed;
+  }
+
+  /* Prevent horizontal scroll */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Stack CTA on mobile */
+  .flex.flex-col.sm\\:flex-row {
+    gap: 0.75rem;
+  }
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll,
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Scrollbar Styling ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050914;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}

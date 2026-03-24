@@ -1,0 +1,155 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — Synapse AI{{ end }}</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta name="author" content="{{ .Site.Params.author }}" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — Synapse AI{{ end }}" />
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ .Site.Params.ogImage | absURL }}" />
+<meta property="og:site_name" content="Synapse AI" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="{{ .Site.Params.twitterHandle }}" />
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — Synapse AI{{ end }}" />
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta name="twitter:image" content="{{ .Site.Params.ogImage | absURL }}" />
+
+<!-- Fonts: Clash Display & Satoshi (Design System) + Material Symbols -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CSS (CDN for demo) -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary":         "#00E5FF",
+          "secondary":       "#7000FF",
+          "background-dark": "#050914",
+          "surface-dark":    "#0F1423",
+          "text-muted":      "#8B949E",
+          "border-dark":     "#1F2937",
+          "accent":          "#00FF94",
+          "error":           "#FF3366",
+          "muted":           "#8B949E",
+        },
+        fontFamily: {
+          "heading": ["'Clash Display'", "sans-serif"],
+          "body":    ["'Satoshi'", "sans-serif"],
+        },
+        borderRadius: {
+          DEFAULT: "0px",
+          button:  "4px",
+          sharp:   "0px",
+        },
+        boxShadow: {
+          'glow-primary':    '0 0 20px rgba(0, 229, 255, 0.4)',
+          'glow-pro':        '0 0 20px rgba(112, 0, 255, 0.15)',
+          'glow-pro-hover':  '0 20px 60px rgba(112, 0, 255, 0.45)',
+        },
+        animation: {
+          'infinite-scroll': 'infinite-scroll 40s linear infinite',
+          'fade-up':         'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          'mesh-float':      'meshFloat 20s ease-in-out infinite alternate',
+          'fade-in-up':      'fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+          'float':           'floatY 6s ease-in-out infinite',
+          'glow-pulse':      'glowPulse 4s ease-in-out infinite',
+          'slide-up':        'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          'grid-flow':       'gridFlow 20s linear infinite',
+          'reveal':          'reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+          'pulse-slow':      'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          'scan':            'scan 3s linear infinite',
+          'pulse-border':    'pulse-border 2s ease-in-out infinite',
+          'shimmer':         'shimmer 3s infinite linear',
+          'draw-in':         'drawIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+          'slide-up-fade':   'slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          'reveal-text':     'revealText 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+          'nebula':          'nebulaMove 20s ease infinite alternate',
+        },
+        keyframes: {
+          'infinite-scroll': {
+            from: { transform: 'translateX(0)' },
+            to:   { transform: 'translateX(-100%)' },
+          },
+          fadeUp: {
+            '0%':   { opacity: '0', transform: 'translateY(20px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          },
+          meshFloat: {
+            '0%':   { transform: 'translate(0, 0) scale(1)' },
+            '100%': { transform: 'translate(5%, 5%) scale(1.1)' },
+          },
+          floatY: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%':      { transform: 'translateY(-10px)' },
+          },
+          glowPulse: {
+            '0%, 100%': { opacity: '0.2' },
+            '50%':      { opacity: '0.4' },
+          },
+          slideUp: {
+            '0%':   { transform: 'translateY(30px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)',     opacity: '1' },
+          },
+          gridFlow: {
+            '0%':   { transform: 'translateY(0)' },
+            '100%': { transform: 'translateY(40px)' },
+          },
+          reveal: {
+            '0%':   { transform: 'translateY(100%)', opacity: '0' },
+            '100%': { transform: 'translateY(0)',     opacity: '1' },
+          },
+          scan: {
+            '0%':   { top: '0%' },
+            '100%': { top: '100%' },
+          },
+          'pulse-border': {
+            '0%, 100%': { borderColor: 'rgba(0, 229, 255, 0.2)' },
+            '50%':      { borderColor: 'rgba(0, 229, 255, 0.6)' },
+          },
+          shimmer: {
+            '0%':   { transform: 'translateX(-100%) skewX(-15deg)' },
+            '100%': { transform: 'translateX(200%) skewX(-15deg)' },
+          },
+          drawIn: {
+            '0%':   { transform: 'scale(0.5)', opacity: '0' },
+            '100%': { transform: 'scale(1)',   opacity: '1' },
+          },
+          slideUpFade: {
+            '0%':   { opacity: '0', transform: 'translateY(20px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          },
+          revealText: {
+            '0%':   { transform: 'translateY(100%)', opacity: '0' },
+            '100%': { transform: 'translateY(0)',     opacity: '1' },
+          },
+          nebulaMove: {
+            '0%':   { backgroundPosition: '0% 50%' },
+            '50%':  { backgroundPosition: '100% 50%' },
+            '100%': { backgroundPosition: '0% 50%' },
+          },
+        },
+      },
+    },
+  }
+</script>
+
+<!-- Custom Styles -->
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
+
+<!-- Favicon (inline SVG data URI) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path fill='%2300E5FF' fill-rule='evenodd' clip-rule='evenodd' d='M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z'/></svg>" type="image/svg+xml" />
