@@ -14,10 +14,13 @@
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
 
   <!-- ═══ Flowing Wave Animation (Canvas) ═══ -->
-  <div class="absolute inset-x-0 bottom-0 h-[60%] z-[5] pointer-events-none">
+  <div class="absolute bottom-0 h-[60%] z-[5] pointer-events-none" style="left: -10%; right: -10%; width: 120%;">
     <canvas id="hero-wave-canvas" class="w-full h-full" style="mix-blend-mode: screen;"></canvas>
+    <!-- Side fades so edges blend naturally -->
+    <div class="absolute inset-y-0 left-0 w-20 md:w-0 bg-gradient-to-r from-[#050914] to-transparent z-10"></div>
+    <div class="absolute inset-y-0 right-0 w-20 md:w-0 bg-gradient-to-l from-[#050914] to-transparent z-10"></div>
     <!-- Bottom fade into page background -->
-    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050914] to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050914] to-transparent z-10"></div>
   </div>
 
   <!-- ═══ Content (above wave) ═══ -->
